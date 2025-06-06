@@ -49,7 +49,9 @@ export default function Home() {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
 
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const win = window as unknown as { webkitAudioContext: typeof AudioContext };
+      const audioContext = new (window.AudioContext || win.webkitAudioContext)();
+            
       audioContextRef.current = audioContext;
 
       const mic = audioContext.createMediaStreamSource(stream);
@@ -120,11 +122,11 @@ export default function Home() {
     const ctx = canvas.getContext('2d')!;
     if (!ctx) return;
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    const width = canvas.width = window.innerWidth;
+    const height = canvas.height = window.innerHeight;
 
-    let fireworks: Firework[] = [];
-    let particles: Particle[] = [];
+    const fireworks: Firework[] = [];
+    const particles: Particle[] = [];
 
     class Firework {
       x: number;
