@@ -51,7 +51,7 @@ export default function Home() {
 
       const win = window as unknown as { webkitAudioContext: typeof AudioContext };
       const audioContext = new (window.AudioContext || win.webkitAudioContext)();
-            
+
       audioContextRef.current = audioContext;
 
       const mic = audioContext.createMediaStreamSource(stream);
@@ -108,9 +108,10 @@ export default function Home() {
           playMusic();
         } else {
           stopMusic();
+
            // ถ้า lit เปลี่ยนจาก true ➜ false (คือ "เป่า")
           if (prevLitRef.current === true && lit === false) {
-            startFireworks();
+              startFireworks();
           }     
         }
   }, [lit]);
@@ -122,11 +123,11 @@ export default function Home() {
     const ctx = canvas.getContext('2d')!;
     if (!ctx) return;
 
-    const width = canvas.width = window.innerWidth;
-    const height = canvas.height = window.innerHeight;
+    const  width = canvas.width = window.innerWidth;
+    const  height = canvas.height = window.innerHeight;
 
-    const fireworks: Firework[] = [];
-    const particles: Particle[] = [];
+    const  fireworks: Firework[] = [];
+    const  particles: Particle[] = [];
 
     class Firework {
       x: number;
@@ -267,7 +268,7 @@ export default function Home() {
             if (!lit) {
               setLit(true);   // จุดเทียนใหม่
               startListening(); // เริ่มฟังเสียงใหม่
-
+              prevLitRef.current = true;
             }
           }}
           style={{ cursor: 'pointer' }}
