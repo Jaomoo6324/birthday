@@ -13,13 +13,13 @@ body {
 .cake {
   position: relative;
   margin: 80 auto;
-  width: 250px;
-  height: 75px;
+  width: 200px;
+  height: 65px;
   background: #7b3f00;
   border-radius: 15px 15px 15px 15px;
   box-shadow:
-    0 50px #8b4513,
-    0 100px #a0522d;
+    0 40px #8b4513,
+    0 80px #a0522d;
 }
 
 /* ไอซิ่งบนหน้าเค้ก */
@@ -98,15 +98,8 @@ h2 {
   margin-top: 120px;
 }
 
-h3 {
-  font-size: 16px;
-  color: #933;
-  margin: 20px 0 5px;
-  margin-top: 120px;
-}
-
 p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   margin: 0;
 }
