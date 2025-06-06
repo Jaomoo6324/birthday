@@ -65,7 +65,7 @@ export default function Home() {
         analyser.getByteFrequencyData(dataArray);
         const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
 
-        if (volume > 20) {
+        if (volume > 50) {
           setLit(false); // ดับไฟเทียน
           if (streamRef.current) {
             streamRef.current.getTracks().forEach(track => track.stop());
